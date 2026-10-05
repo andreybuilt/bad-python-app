@@ -10,3 +10,6 @@ def get_uploads_folder_url():
     return url_for('static', filename='uploads')
     
 
+def list_dir(path):
+    import subprocess
+    return subprocess.call("ls " + path, shell=Tru
