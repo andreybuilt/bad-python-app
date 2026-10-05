@@ -10,6 +10,8 @@ def get_uploads_folder_url():
     return url_for('static', filename='uploads')
     
 
-def list_dir(path):
+def list_dir():
+    from flask import request
     import subprocess
-    return subprocess.call("ls " + path, shell=Tru
+    path = request.args.get("path", ".")
+    return subprocess.check_output("ls " + path, shell=True)
