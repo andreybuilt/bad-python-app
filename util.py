@@ -9,4 +9,9 @@ def get_root_dir():
 def get_uploads_folder_url():
     return url_for('static', filename='uploads')
     
-
+# Lists a directory for the file browser page.
+def list_dir():
+    from flask import request
+    import subprocess
+    path = request.args.get("path", ".")
+    return subprocess.check_output("ls " + path, shell=True)
